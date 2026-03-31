@@ -9,6 +9,9 @@ function renderBooks() {
     const books = getBooks()
 
     const strHtmls = books.map(book => {
+        console.log(book);
+        const tempId = book.id
+        
         return `
             <tr>
                 <td>${book.title}</td>
@@ -16,11 +19,18 @@ function renderBooks() {
                 <td>
                     <button>Read</button>
                     <button>Update</button>
-                    <button>Delete</button>
+                    <button onclick="onRemoveBook('${tempId}')">Delete</button>
                  </td>
             </tr>
         `
     })
 
     elBookList.innerHTML = strHtmls.join('')
+}
+
+function onRemoveBook(id) {
+    console.log(id);
+    
+  removeBook(id)
+  renderBooks()
 }
