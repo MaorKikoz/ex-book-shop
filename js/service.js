@@ -11,7 +11,17 @@ function getBooks() {
   return books
 }
 
+function getBook(id) {
+  var book = books.find(book => book.id === id)
+  return book
+}
+
 function removeBook(id) {
   books = books.filter(book => book.id !== id)
 }
 
+function updatePrice(id, newPrice) {
+  console.log(id, newPrice);
+  var book = getBook(id)
+  book.price = newPrice
+}

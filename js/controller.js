@@ -18,7 +18,7 @@ function renderBooks() {
                 <td>${book.price}</td>
                 <td>
                     <button>Read</button>
-                    <button>Update</button>
+                    <button onclick="onUpdateBook('${tempId}')">Update</button>
                     <button onclick="onRemoveBook('${tempId}')">Delete</button>
                  </td>
             </tr>
@@ -29,8 +29,16 @@ function renderBooks() {
 }
 
 function onRemoveBook(id) {
-    console.log(id);
     
   removeBook(id)
   renderBooks()
+}
+
+
+
+function onUpdateBook(id) {
+    console.log(id);
+    var newPrice = +prompt('Enter a new price for this book.')
+    updatePrice(id, newPrice)
+    renderBooks()
 }
