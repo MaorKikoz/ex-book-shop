@@ -25,3 +25,9 @@ function updatePrice(id, newPrice) {
   var book = getBook(id)
   book.price = newPrice
 }
+
+function addBook(title, price) {
+  var newId = makeId()
+  var newBook = { id: newId, title: title, price: price }
+  books.push(newBook)
+}
