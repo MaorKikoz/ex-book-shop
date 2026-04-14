@@ -17,7 +17,7 @@ function renderBooks() {
                 <td>${book.title}</td>
                 <td>${book.price}</td>
                 <td>
-                    <button>Read</button>
+                    <button onclick="onReadBook('${tempId}')">Read</button>
                     <button onclick="onUpdateBook('${tempId}')">Update</button>
                     <button onclick="onRemoveBook('${tempId}')">Delete</button>
                  </td>
@@ -49,3 +49,16 @@ function onAddBook() {
     addBook(title, price)
     renderBooks()
 }
+
+function onReadBook(id) {
+    console.log(id);
+    const elDetailsModal = document.querySelector('.details-modal')
+    const elDetails = elDetailsModal.querySelector('pre')
+     
+    const book = getBook(id)
+    const json = JSON.stringify(book, null, 4)
+
+    elDetails.innerText = json
+    elDetailsModal.showModal()
+}
+
